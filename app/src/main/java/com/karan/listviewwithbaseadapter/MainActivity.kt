@@ -5,18 +5,20 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
+import android.widget.ListAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.karan.listviewwithbaseadapter.databinding.ActivityMainBinding
 import com.karan.listviewwithbaseadapter.databinding.CustomDialogboxBinding
+import com.karan.listviewwthbaseadapter.List_adapter
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var array = arrayListOf("karan", "chaitnya", "yoyo")
-    var List_adapter = List_adapter(array)
+    var List_adapter=List_adapter(array)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
 
-
             dialogBinding.btnadd.setOnClickListener {
                 array.add(dialogBinding.etname.text.toString())
                 dialog.dismiss()
@@ -49,13 +50,11 @@ class MainActivity : AppCompatActivity() {
             dialog.setCancelable(false)
             dialog.show()
 
-
         }
-        binding.list.setOnItemLongClickListener{parent,View,position,id->
+        binding.list.setOnItemLongClickListener { parent, View, position, id ->
             array.removeAt(position)
             List_adapter.notifyDataSetChanged()
             return@setOnItemLongClickListener true
-
 
         }
 

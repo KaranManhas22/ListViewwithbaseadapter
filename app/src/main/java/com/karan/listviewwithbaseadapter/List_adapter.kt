@@ -1,10 +1,11 @@
-package com.karan.listviewwithbaseadapter
+package com.karan.listviewwthbaseadapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import com.karan.listviewwithbaseadapter.R
 
 class List_adapter(var List: ArrayList<String>): BaseAdapter()
 {
